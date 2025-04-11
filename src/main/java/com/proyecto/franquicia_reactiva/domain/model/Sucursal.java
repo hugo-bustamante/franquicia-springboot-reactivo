@@ -10,6 +10,6 @@ import java.util.List;
 @AllArgsConstructor
 public class Sucursal {
     private String id;
-    private String nombre;
-    private List<Producto> productos;
+    private String name;
+    private List<Product> products;
 }

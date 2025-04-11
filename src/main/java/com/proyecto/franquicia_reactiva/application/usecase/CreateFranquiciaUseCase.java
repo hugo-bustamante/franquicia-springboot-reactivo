@@ -8,9 +8,9 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class CreateFranquiciaUseCase {
 
-    private final FranquiciaRepository franquiciaRepository;
+    private final FranquiciaRepository repository;
 
     public Mono<franquicia> execute(franquicia franquicia) {
-        return franquiciaRepository.save(franquicia);
+        return repository.save(franquicia);
     }
 }

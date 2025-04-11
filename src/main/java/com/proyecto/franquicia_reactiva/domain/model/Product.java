@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Producto {
+public class Product {
     private String id;
-    private String nombre;
+    private String name;
     private int stock;
 }
