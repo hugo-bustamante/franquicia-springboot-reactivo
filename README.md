@@ -40,16 +40,16 @@ cd franquicia-springboot-reactivo
 ---
 
 2. **Crear archivo .env**
--Crea un archivo llamado .env en la raíz del proyecto con el siguiente contenido:
--MONGODB_URI=mongodb+srv://<usuario>:<password>@<cluster-url>/franquiciasdb?retryWrites=true&w=majority&appName=cluster-franquicia
--Reemplaza <usuario>, <password> y <cluster-url> por los datos de tu cluster de MongoDB Atlas.
+- Crea un archivo llamado .env en la raíz del proyecto con el siguiente contenido:
+- MONGODB_URI=mongodb+srv://<usuario>:<password>@<cluster-url>/franquiciasdb?retryWrites=true&w=majority&appName=cluster-franquicia
+- Reemplaza <usuario>, <password> y <cluster-url> por los datos de tu cluster de MongoDB Atlas.
 
 ---
 
 ## 🚧 Levantar el Proyecto con Docker Compose
 Desde la raíz del proyecto, ejecuta:
 
-docker-compose up --build
+- docker-compose up --build
 
 Esto construirá la imagen de la API y la levantará en el puerto 8080.
 
@@ -66,27 +66,27 @@ Asegúrate de tener las credenciales de AWS y la URI de MongoDB Atlas configurad
 
 Desde la carpeta raíz del proyecto, navega a `infra/terraform` y corre los siguientes comandos:
 
-cd infra/terraform
-terraform init
-terraform apply
+- cd infra/terraform
+- terraform init
+- terraform apply
 
 3. **Automatiza con el Script deploy.sh**
 Puedes usar el script deploy.sh para automatizar el despliegue completo. Este script se encargará de:
 
-Inicializar Terraform
-Crear el repositorio en ECR
-Construir y subir la imagen Docker a ECR
-Desplegar la infraestructura completa en AWS
+- Inicializar Terraform
+- Crear el repositorio en ECR
+- Construir y subir la imagen Docker a ECR
+- Desplegar la infraestructura completa en AWS
 
 
 *Simplemente corre el siguiente comando:*
-./deploy.sh
+- ./deploy.sh
 
 ## 🧪 Correr Pruebas Locales
 
 Si deseas ejecutar las pruebas unitarias y de integración de la aplicación localmente, usa Maven con el siguiente comando:
 
-mvn clean test
+- mvn clean test
 
 ---
 
@@ -107,18 +107,18 @@ Base URL: http://localhost:8080/api/franquicias
 ---
 
 ## 📚 Estructura del Proyecto
--domain: Modelos y repositorios
--application: Casos de uso
--infrastructure.repository.mongo: Adaptadores de persistencia
--infrastructure.rest.controller: Controladores REST
--infrastructure.rest.dto: DTOs
--infrastructure.rest.mapper: Mappers entre dominio y DTOs
+- domain: Modelos y repositorios
+- application: Casos de uso
+- infrastructure.repository.mongo: Adaptadores de persistencia
+- infrastructure.rest.controller: Controladores REST
+- infrastructure.rest.dto: DTOs
+- infrastructure.rest.mapper: Mappers entre dominio y DTOs
 
 ---
 
 ## 🚨 Notas Finales
 
--El proyecto se conecta a MongoDB Atlas usando la URI definida en .env
--La aplicación se empaqueta y levanta con Docker
--Se utilizaron buenas prácticas como programación reactiva, Mono y Flux
--Requiere Java 17 para su construcción
+- El proyecto se conecta a MongoDB Atlas usando la URI definida en .env
+- La aplicación se empaqueta y levanta con Docker
+- Se utilizaron buenas prácticas como programación reactiva, Mono y Flux
+- Requiere Java 17 para su construcción
