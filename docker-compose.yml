@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  franquicia-api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=${MONGODB_URI}
+    container_name: franquicia-app
