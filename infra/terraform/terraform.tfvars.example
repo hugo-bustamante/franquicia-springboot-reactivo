@@ -1,0 +1,6 @@
+aws_access_key = "YOUR_AWS_ACCESS_KEY"
+aws_secret_key = "YOUR_AWS_SECRET_KEY"
+aws_region     = "us-east-1"
+ecr_repo_name  = "franquicia-repo"
+lambda_name    = "franquicia-lambda"
+mongodb_uri    = "your-mongodb-uri"
