@@ -34,7 +34,7 @@ public class FranquiciaController {
     }
 
     @PostMapping("/{id}/sucursales")
-    public Mono<FranquiciaDTO> agregarSucursal(@PathVariable String id, @RequestBody SucursalDTO sucursalDTO) {
+    public Mono<FranquiciaDTO> addSucursal(@PathVariable String id, @RequestBody SucursalDTO sucursalDTO) {
         return addSucursal.execute(id, FranquiciaMapper.toModel(sucursalDTO))
                 .map(FranquiciaMapper::toDto);
     }

@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import com.proyecto.franquicia_reactiva.domain.model.Sucursal;
 import com.proyecto.franquicia_reactiva.domain.repository.FranquiciaRepository;
+import com.proyecto.franquicia_reactiva.infrastructure.exception.AlreadyExistsException;
+
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
@@ -16,13 +18,20 @@ public class AddSucursalToFranquiciaUseCase {
 
     public Mono<franquicia> execute(String franquiciaId, Sucursal sucursal) {
         return repository.findById(franquiciaId)
-                .map(franquicia -> {
+                .flatMap(franquicia -> {
+                    // Validar que no exista una sucursal con el mismo nombre
+                    boolean exists = franquicia.getSucursales().stream()
+                            .anyMatch(s -> s.getName().equalsIgnoreCase(sucursal.getName()));
+                    
+                    if (exists) {
+                        return Mono.error(new AlreadyExistsException("Sucursal con el mismo nombre, ya existe."));
+                    }
+
                     if (sucursal.getId() == null || sucursal.getId().isBlank()) {
                         sucursal.setId(UUID.randomUUID().toString());
                     }
                     franquicia.getSucursales().add(sucursal);
-                    return franquicia;
-                })
-                .flatMap(repository::save);
+                    return repository.save(franquicia);
+                });
     }
 }
