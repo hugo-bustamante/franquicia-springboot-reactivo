@@ -13,7 +13,7 @@ import java.util.List;
 
 @DataMongoTest
 @TestPropertySource(properties = {
-    "spring.mongodb.embedded.version=4.0.2"
+    "spring.mongodb.embedded.version=4.11.1"
 })
 public class FranquiciaRepositoryIntegrationTest {
 

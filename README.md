@@ -89,6 +89,7 @@ Si deseas ejecutar las pruebas unitarias y de integración de la aplicación loc
 
 - mvn clean test
 
+Nota: Flapdoodle debe levantar automáticamente una instancia embebida de MongoDB cuando se ejecuten las pruebas integrales, los test realizados en las pruebas están bien a nivel de logica.
 ---
 
 ## 🚜 Endpoints Disponibles
